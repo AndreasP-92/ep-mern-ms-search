@@ -5,6 +5,10 @@ on:
     branches:
       - main
     tags: ['v*.*.*']
+  pull_request:
+    branches:
+      - main
+      tags: ['v*.*.*']
 env:
   IMAGE_NAME: ep-mern-searchservice-testing
 
