@@ -18,8 +18,12 @@ jobs:
     name: build container image
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ env.BRANCH_NAME }}
+
+      - run: echo $BRANCH_NAME
 
       - name: get version
         id: tag
@@ -38,7 +42,7 @@ jobs:
           push: true
           build-args: |
             version=${{ steps.tag.outputs.tag }}
-          context: ./client
+          context: ./searchservice
           tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
 
 
