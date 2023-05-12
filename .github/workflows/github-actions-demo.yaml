@@ -13,6 +13,10 @@ env:
   IMAGE_NAME: ep-mern-searchservice-testing
   BRANCH_NAME: ${{ github.ref}}
 
+defaults:
+  run:
+    working-directory: ./api
+
 jobs:
   build:
     name: build container image
@@ -34,16 +38,24 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Build & Push
+        name: Build Docker Image - API
         uses: docker/build-push-action@v2
         with:
-          push: true
-          build-args: |
-            version=${{ steps.tag.outputs.tag }}
-          file: Dockerfile
+          file: search-microservice/Dockerfile
           context: ./search-microservice
-          dockerfile: ./search-microservice/Dockerfile
-          tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
+          push: false
+          tags: myimage:latest
+
+      # - name: Build & Push
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     push: true
+      #     build-args: |
+      #       version=${{ steps.tag.outputs.tag }}
+      #     file: Dockerfile
+      #     context: ./search-microservice
+      #     dockerfile: ./search-microservice/Dockerfile
+      #     tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
 
 
 # run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
