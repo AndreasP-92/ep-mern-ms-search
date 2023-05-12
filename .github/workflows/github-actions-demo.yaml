@@ -26,7 +26,7 @@ jobs:
         uses: AndreasP-92/ep-mern-ms-search@v1
 
       - name: Log into registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@main
         with:
           registry: ${{ secrets.ACR_ENDPOINT }}
           username: ${{ secrets.ACR_USERNAME }}
