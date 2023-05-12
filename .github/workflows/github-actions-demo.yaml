@@ -19,8 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        Default: ${{ github.repository }}
+        uses: actions/checkout@v2
 
       - run: echo $BRANCH_NAME
 
@@ -41,6 +40,7 @@ jobs:
           push: true
           build-args: |
             version=${{ steps.tag.outputs.tag }}
+          file: Dockerfile
           context: ./search-microservice
           dockerfile: ./search-microservice/Dockerfile
           tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
