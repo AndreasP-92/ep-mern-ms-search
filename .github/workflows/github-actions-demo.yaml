@@ -33,8 +33,7 @@ jobs:
           push: true
           file: search-microservice/Dockerfile
           context: ./search-microservice
-          push: false
-          tags: myimage:latest
+          tags: search-searvice-test:latest
 
 
 
