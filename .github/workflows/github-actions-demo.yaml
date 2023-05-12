@@ -16,11 +16,11 @@ jobs:
           ref: main
 
       - name: get tag
-        id: tag
+      id: tag
         uses: AndreasP-92/ep-mern-ms-search@v1
 
       - name: Log into registry
-        uses: docker/login-action@v1
+     uses: docker/login-action@v1
         with:
           registry: ${{ secrets.ACR_ENDPOINT }}
           username: ${{ secrets.ACR_USERNAME }}
