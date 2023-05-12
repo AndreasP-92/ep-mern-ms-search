@@ -1,7 +1,14 @@
 name: ep-mern-ms-search-ci-cd
+
 on:
   push:
+    branches:
+      - main
     tags: ['v*.*.*']
+  pull_request:
+    branches:
+      - main
+      tags: ['v*.*.*']
 env:
   IMAGE_NAME: ep-mern-searchservice-testing
 
@@ -12,8 +19,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
-        with:
-          ref: main
 
       - name: get tag
         id: tag
