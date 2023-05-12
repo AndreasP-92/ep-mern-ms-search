@@ -2,6 +2,9 @@ name: ep-mern-ms-search-ci-cd
 on:
   push:
     tags: ['v*.*.*']
+  pull_request:
+    branches:
+      - main
 env:
   IMAGE_NAME: ep-mern-searchservice-testing
 
@@ -16,8 +19,8 @@ jobs:
           ref: main
 
       - name: get tag
-      id: tag
-      uses: AndreasP-92/ep-mern-ms-search@v1
+        id: tag
+        uses: AndreasP-92/ep-mern-ms-search@v1
 
       - name: Log into registry
         uses: docker/login-action@v1
