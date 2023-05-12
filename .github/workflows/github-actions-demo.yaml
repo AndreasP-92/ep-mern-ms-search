@@ -2,9 +2,6 @@ name: ep-mern-ms-search-ci-cd
 on:
   push:
     tags: ['v*.*.*']
-  # pull_request:
-  #   branches:
-  #     - main
 env:
   IMAGE_NAME: ep-mern-searchservice-testing
 
