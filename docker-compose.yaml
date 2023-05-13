@@ -6,7 +6,8 @@ networks:
 
 services:
   search-service:
-    image: ep-mern-searchservice-testing:${BUILD_TAG}
+    # image: ep-mern-searchservice-testing:${BUILD_TAG}
+    image: ep-mern-searchservice:v3
     container_name: ep-mern-searchservice 
     # stdin_open: true
     environment:

@@ -37,8 +37,13 @@ jobs:
 
       - name: Push Docker image to Azure Container Registry
         run: |
-          docker tag ep-mern-searchservice-testing:${{ env.BUILD_TAG}} ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ env.BUILD_TAG }}
-          docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ env.BUILD_TAG }} 
+          docker tag ep-mern-searchservice:v3 azurecontainerlorde.azurecr.io/ep-mern-searchservice:v3
+          docker push azurecontainerlorde.azurecr.io/ep-mern-searchservice:v3
+
+
+
+  # docker tag ep-mern-searchservice-testing:${{ env.BUILD_TAG}} ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ env.BUILD_TAG }}
+  # docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ env.BUILD_TAG }} 
 
 # name: Push docker images
 
