@@ -42,7 +42,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./search-microservice
+    working-directory: ./
 
 env:
   IMAGE_NAME: ep-mern-searchservice-testing
@@ -70,8 +70,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          file: search-microservice/Dockerfile
-          context: ./search-microservice
+          file: docker-compose
+          # context: ./
           tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:V1
 
 # name: ep-mern-ms-search-ci-cd
