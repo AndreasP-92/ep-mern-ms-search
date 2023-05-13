@@ -22,12 +22,12 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Create env file
-        run: |
-          touch .env
-          echo "${{ secrets.SERVER_ENV_PROD }}" > .env
-          echo "BUILD_TAG=${{ env.BUILD_TAG }}" > .env
-          cat .env
+      # - name: Create env file
+      #   run: |
+      #     touch .env
+      #     echo "${{ secrets.SERVER_ENV_PROD }}" > .env
+      #     echo "BUILD_TAG=${{ env.BUILD_TAG }}" > .env
+      #     cat .env
 
       - name: Build image
         run: docker compose -f docker-compose.yaml build
@@ -44,8 +44,8 @@ jobs:
 
       - name: Push Docker image to Azure Container Registry
         run: |
-          docker tag ep-mern-searchservice:latest azurecontainerlorde.azurecr.io/ep-mern-searchservice:{{ env.BUILD_TAG }}
-          docker push azurecontainerlorde.azurecr.io/ep-mern-searchservice:{{ env.BUILD_TAG }}
+          docker tag ep-mern-searchservice:latest azurecontainerlorde.azurecr.io/ep-mern-searchservice:${{ env.BUILD_TAG }}
+          docker push azurecontainerlorde.azurecr.io/ep-mern-searchservice:${{ env.BUILD_TAG }}
 
 
 
