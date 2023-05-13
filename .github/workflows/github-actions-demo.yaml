@@ -54,23 +54,24 @@ jobs:
 
     steps:
         uses: actions/checkout@v2
+
       - name: Get tag
         id: tag
         uses: AndreasP-92/ep-mern-ms-search@main
+
       - name: Log into registry
         uses: docker/login-action@v1
         with:
           registry: ${{ secrets.ACR_ENDPOINT }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
+
       - name: Build & Push
         uses: docker/build-push-action@v2
         with:
           push: true
           file: search-microservice/Dockerfile
           context: ./search-microservice
-          build-args: |
-            version=${{ steps.tag.outputs.tag }}
           tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
 
 # name: ep-mern-ms-search-ci-cd
