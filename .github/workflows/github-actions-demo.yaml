@@ -1,5 +1,10 @@
 name: Server Build & Push
 
+env:
+  IMAGE_NAME: ep-mern-searchservice-testing
+  BRANCH_NAME: ${{ github.ref}}
+  BUILD_TAG: ${{ github.sha }}
+
 on:
   push:
 
@@ -16,14 +21,21 @@ jobs:
           registry: ${{ secrets.ACR_ENDPOINT }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-          
+
       - name: Create env file
         run: |
           touch .env
           echo "${{ secrets.SERVER_ENV_PROD }}" > .env
+          echo "BUILD_TAG=${{ env.BUILD_TAG }}" >> .env
           cat .env
+
       - name: Build image
         run: docker compose -f docker-compose.yaml build
+
+      - name: Push Docker image to Azure Container Registry
+        run: |
+          docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
+          docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ BUILD_TAG }} 
 
 # name: Push docker images
 
