@@ -40,8 +40,8 @@ name: Push docker images
 on:
   push:
 
-defaults:
-  run:
+# defaults:
+#   run:
     # working-directory: ./
 
 env:
