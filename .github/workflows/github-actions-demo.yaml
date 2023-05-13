@@ -47,6 +47,12 @@ jobs:
           docker tag ep-mern-searchservice:latest azurecontainerlorde.azurecr.io/ep-mern-searchservice:${{env.BUILD_TAG }}
           docker push azurecontainerlorde.azurecr.io/ep-mern-searchservice:${{ env.BUILD_TAG }}
 
+      - name: Deploy to AKS
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          kubectl apply -f deployment.yaml
+
 
 
   # docker tag ep-mern-searchservice-testing:${{ env.BUILD_TAG}} ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ env.BUILD_TAG }}
