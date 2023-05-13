@@ -6,7 +6,7 @@ networks:
 
 services:
   search-service:
-    image: ep-mern-searchservice-testing:latest
+    image: ep-mern-searchservice
     # image: ep-mern-searchservice:v3
     container_name: ep-mern-searchservice 
     # stdin_open: true
