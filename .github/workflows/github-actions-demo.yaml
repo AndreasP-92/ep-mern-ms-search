@@ -32,8 +32,8 @@ jobs:
       - name: Build image
         run: docker compose -f docker-compose.yaml build
 
-      - name: login to acr
-        run: acr login --name azureContainerLorde
+      # - name: login to acr
+      #   run: acr login --name azureContainerLorde
 
       - name: Push Docker image to Azure Container Registry
         run: |
