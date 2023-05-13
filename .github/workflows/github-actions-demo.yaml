@@ -72,7 +72,7 @@ jobs:
           push: true
           file: search-microservice/Dockerfile
           context: ./search-microservice
-          tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
+          tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:V1
 
 # name: ep-mern-ms-search-ci-cd
 
