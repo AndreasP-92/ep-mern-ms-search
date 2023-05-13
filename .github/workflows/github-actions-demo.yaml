@@ -15,7 +15,7 @@ jobs:
           echo "${{ secrets.SERVER_ENV_PROD }}" > .env
           cat .env
       - name: Build image
-        run: docker compose -f docker-compose.prod.yml build
+        run: docker compose -f docker-compose.yaml build
 
 # name: Push docker images
 
