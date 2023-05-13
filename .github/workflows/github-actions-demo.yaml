@@ -32,6 +32,9 @@ jobs:
       - name: Build image
         run: docker compose -f docker-compose.yaml build
 
+      - name: login to acr
+        run: az login --name azureContainerLorde
+
       - name: Push Docker image to Azure Container Registry
         run: |
           docker tag ep-mern-searchservice-testing:${{ env.BUILD_TAG}} ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/ep-mern-searchservice-testing:${{ env.BUILD_TAG }}
