@@ -35,6 +35,13 @@ jobs:
       # - name: login to acr
       #   run: acr login --name azureContainerLorde
 
+      - name: echo env
+        run: echo ${{ env.BUILD_TAG }}
+
+      - name: test images
+        run: | 
+          docker images
+
       - name: Push Docker image to Azure Container Registry
         run: |
           docker tag ep-mern-searchservice:{{ env.BUILD_TAG }} azurecontainerlorde.azurecr.io/ep-mern-searchservice:{{ env.BUILD_TAG }}
