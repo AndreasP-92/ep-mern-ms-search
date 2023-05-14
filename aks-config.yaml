@@ -21,7 +21,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: ep-mern-searchservice
-        image: azurecontainerlorde.azurecr.io/ep-mern-searchservice:v2
+        image: azurecontainerlorde.azurecr.io/ep-mern-searchservice:${BUILD_TAG}
         ports:
         - containerPort: 3002
         resources:
