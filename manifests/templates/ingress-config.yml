@@ -18,7 +18,7 @@ spec:
             port:
               number: 80
       paths:
-      - path: /(.*)
+      - path: /searservice/(.*)
         pathType: Prefix
         backend:
           service:
