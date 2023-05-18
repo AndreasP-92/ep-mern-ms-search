@@ -46,6 +46,9 @@ jobs:
         # run: source environment.sh envsubst < aks-config.yaml.template > aks-config.yaml |
           # cat aks-config.yaml
 
+      - name: test
+        run: cat config.yaml
+
       - name: Push Docker image to Azure Container Registry
         run: |
           docker tag ${{ env.IMAGE_NAME }}:latest ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}
