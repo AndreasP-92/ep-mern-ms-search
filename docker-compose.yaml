@@ -19,8 +19,5 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./search-microservice
-    volumes:
-      - /api/node_modules
-      - ./api:/app
     ports:
       - "3002:3002"
