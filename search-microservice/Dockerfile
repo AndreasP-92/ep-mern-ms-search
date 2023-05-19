@@ -23,7 +23,7 @@ COPY . .
 RUN npm start
 
 # Stage 2: Setup Nginx as a reverse proxy
-FROM nginx:latest
+FROM nginx:alpine
 
 # Remove the default Nginx configuration
 RUN rm /etc/nginx/conf.d/default.conf
