@@ -10,7 +10,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /searchservice/(.*)
+      - path: /ms/search/(.*)
         pathType: Prefix
         backend:
           service:
