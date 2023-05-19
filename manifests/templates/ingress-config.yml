@@ -10,10 +10,10 @@ spec:
   rules:
   - http:
       paths:
-      - path: /ms/search/(.*)
+      - path: /ms/search/ 
         pathType: Prefix
         backend:
           service:
             name: ep-mern-searchservice
             port:
-              number: 3002
+              number: 80
