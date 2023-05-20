@@ -8,8 +8,8 @@ router.get('/ms/search/', (req, res) => {
 })
 
 router.get('/ms/search/allEvents', searchRepository.allEvents);
-router.post('/ms/searchsearchEvents', searchRepository.searchEvents);
-router.post('/ms/searchnextEventPage', searchRepository.getNextEventPage);
-router.post('/ms/searcheventsByCategory', searchRepository.getEventsByCategory);
+router.post('/ms/search/searchEvents', searchRepository.searchEvents);
+router.post('/ms/search/nextEventPage', searchRepository.getNextEventPage);
+router.post('/ms/search/eventsByCategory', searchRepository.getEventsByCategory);
 
 export default router
