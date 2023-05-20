@@ -22,7 +22,7 @@ spec:
       containers:
       - name: ep-mern-searchservice
         image: azurecontainerlorde.azurecr.io/ep-mern-searchservice:${BUILD_TAG}
-                envFrom: 
+        envFrom: 
         - configMapRef:
             name: search-config-map
         ports:
