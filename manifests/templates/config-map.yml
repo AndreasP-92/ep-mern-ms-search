@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: search-config-map
+data:
+  API_KEY: "S36HVZZjkZjRGm2FTSDwYkdrB5GsGne3"
+  EVENT_MASTER_URL: "https://app.ticketmaster.com/discovery/v2/events?apike:36HVZZjkZjRGm2FTSDwYkdrB5GsGne3"
+  DEV_EVENT_MASTER_URL: "http://localhost:8080/api/ticketmasterstub"
+
+
