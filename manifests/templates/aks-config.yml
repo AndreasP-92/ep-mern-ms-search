@@ -21,7 +21,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: ep-mern-searchservice
-        image: azurecontainerlorde.azurecr.io/ep-mern-searchservice:${BUILD_TAG}
+        image: azurecontainerlord.azurecr.io/ep-mern-searchservice:${BUILD_TAG}
         envFrom: 
         - configMapRef:
             name: search-config-map
